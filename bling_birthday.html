@@ -3,27 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>🎂 给Bling的专属小宇宙 · 生日快乐！</title>
-  <meta name="description" content="一份为你定制的网页礼物：信件、祝福、礼券和小小烟花。愿你从今天起，和快乐撞个满怀。"/>
+  <title>🎂 Bling，生日快乐 · 豆豆的专属网页礼物</title>
+  <meta name="description" content="给 Bling 的生日网页礼物：可打开的信封、刮刮卡惊喜、祝福机、彩带烟花和专属礼券。来自豆豆。"/>
   <style>
     :root {
-      --hue: 320;           /* 主题色相（0-360 可调） */
+      --hue: 318;           /* 主题色可滑动调整 */
       --bg: hsl(calc(var(--hue) + 180), 65%, 6%);
       --bg-2: hsl(calc(var(--hue) + 200), 60%, 8%);
-      --card: hsla(var(--hue), 70%, 14%, 0.7);
-      --card-2: hsla(var(--hue), 70%, 18%, 0.75);
+      --card: hsla(var(--hue), 70%, 14%, 0.75);
+      --card-2: hsla(var(--hue), 70%, 18%, 0.8);
       --txt: hsl(0 0% 98%);
       --sub: hsl(0 0% 88%);
       --acc: hsl(var(--hue) 90% 62%);
       --acc-2: hsl(calc(var(--hue) + 40) 90% 60%);
-      --soft: hsl(var(--hue) 70% 92% / .14);
+      --soft: hsl(var(--hue) 70% 92% / .16);
       --shadow: 0 10px 30px hsl(var(--hue) 80% 20% / .25);
       --radius-xl: 22px;
       --radius-lg: 16px;
       --radius-md: 12px;
     }
 
-    /* Reset & base */
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body {
@@ -37,66 +36,51 @@
     }
     a { color: var(--acc); text-decoration: none; }
 
-    .container {
-      max-width: 960px; margin: 0 auto; padding: 20px clamp(16px, 4vw, 28px) 120px;
-    }
+    .container { max-width: 980px; margin: 0 auto; padding: 20px clamp(16px, 4vw, 28px) 120px; }
 
-    header.hero {
-      text-align: center; padding: 72px 0 34px; position: relative;
-    }
+    header.hero { text-align: center; padding: 72px 0 34px; position: relative; }
     header .badge {
       display: inline-flex; gap: 10px; align-items: center; padding: 8px 14px; border-radius: 999px;
       background: hsl(var(--hue) 80% 12% / .5); box-shadow: var(--shadow); border: 1px solid hsl(var(--hue) 70% 50% / .25);
-      font-size: 14px; color: var(--sub);
-      backdrop-filter: blur(6px);
+      font-size: 14px; color: var(--sub); backdrop-filter: blur(6px);
     }
     .spark { width: 8px; height: 8px; border-radius: 999px; background: var(--acc); box-shadow: 0 0 24px var(--acc); }
 
-    h1.grad {
-      font-size: clamp(32px, 7vw, 64px); line-height: 1.05; margin: 18px 0 8px;
-      background: linear-gradient(90deg, var(--acc), var(--acc-2));
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-      text-shadow: 0 8px 40px hsl(var(--hue) 90% 50% / .25);
-    }
+    h1.grad { font-size: clamp(32px, 7vw, 64px); line-height: 1.05; margin: 18px 0 8px;
+      background: linear-gradient(90deg, var(--acc), var(--acc-2)); -webkit-background-clip: text; background-clip: text; color: transparent;
+      text-shadow: 0 8px 40px hsl(var(--hue) 90% 50% / .25); }
     .subline { color: var(--sub); font-size: clamp(14px, 2.6vw, 18px); }
 
-    .cta {
-      margin-top: 22px; display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center;
-    }
+    .cta { margin-top: 22px; display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
     .btn {
       padding: 12px 18px; border-radius: 999px; border: 1px solid hsl(var(--hue) 70% 60% / .5);
       background: linear-gradient(180deg, hsl(var(--hue) 70% 22% / .7), hsl(var(--hue) 70% 18% / .7));
       color: white; font-weight: 600; letter-spacing: 0.2px; box-shadow: var(--shadow); cursor: pointer;
-      transition: transform .12s ease, filter .2s ease;
-      will-change: transform;
+      transition: transform .12s ease, filter .2s ease; will-change: transform;
     }
     .btn:hover { transform: translateY(-1px); filter: brightness(1.06); }
     .btn.secondary { background: hsl(var(--hue) 40% 14% / .6); border-color: transparent; }
 
-    /* Sections */
     section { margin-top: 28px; }
-    .card {
-      background: linear-gradient(160deg, var(--card), var(--card-2));
-      border: 1px solid hsl(var(--hue) 70% 50% / .2);
-      box-shadow: var(--shadow); border-radius: var(--radius-xl); padding: clamp(14px, 2.6vw, 22px);
-    }
+    .card { background: linear-gradient(160deg, var(--card), var(--card-2)); border: 1px solid hsl(var(--hue) 70% 50% / .2); box-shadow: var(--shadow); border-radius: var(--radius-xl); padding: clamp(14px, 2.6vw, 22px); }
 
-    /* Envelope letter */
+    /* ===== 信封：视觉层级修复 ===== */
     .envelope-wrap { position: relative; display: grid; place-items: center; margin-top: 10px; }
-    .envelope { width: min(520px, 92vw); height: 280px; perspective: 1600px; }
+    .envelope { width: min(520px, 92vw); height: 300px; perspective: 1600px; position: relative; }
     .flap, .paper, .base { position: absolute; inset: 0; border-radius: var(--radius-lg); }
-    .base { background: linear-gradient(180deg, hsl(var(--hue) 60% 20%), hsl(var(--hue) 60% 16%)); border: 1px solid hsl(var(--hue) 50% 50% / .3); box-shadow: var(--shadow); }
-    .flap { transform-origin: top; background: linear-gradient(180deg, hsl(var(--hue) 60% 28%), hsl(var(--hue) 60% 20%)); border: 1px solid hsl(var(--hue) 50% 50% / .3); clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%); transition: transform 800ms cubic-bezier(.2,.7,.1,1); }
-    .paper { background: #fff; color: #222; width: calc(100% - 22px); height: calc(100% - 22px); left: 11px; top: 11px; border-radius: var(--radius-md); box-shadow: 0 12px 40px rgba(0,0,0,.35);
-      transform: translateY(46%); transition: transform 800ms cubic-bezier(.2,.7,.1,1); overflow: hidden; display: grid; grid-template-rows: auto 1fr auto; }
-    .paper header { padding: 14px 16px; background: linear-gradient(180deg, #fff, #fafafa); border-bottom: 1px dashed #e7e7e7; color: #444; font-weight: 700; letter-spacing: .2px; }
-    .paper .content { padding: 14px 16px 10px; font-size: 15.5px; line-height: 1.6; }
-    .paper footer { padding: 12px 16px 16px; color: #666; font-size: 14px; border-top: 1px dashed #eee; }
+    .base { z-index: 2; background: linear-gradient(180deg, hsl(var(--hue) 60% 20%), hsl(var(--hue) 60% 16%)); border: 1px solid hsl(var(--hue) 50% 50% / .3); box-shadow: var(--shadow); overflow: hidden; }
+    .flap { z-index: 4; transform-origin: top; background: linear-gradient(180deg, hsl(var(--hue) 60% 28%), hsl(var(--hue) 60% 20%)); border: 1px solid hsl(var(--hue) 50% 50% / .3); clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%); transition: transform 800ms cubic-bezier(.2,.7,.1,1); backface-visibility: hidden; }
+    .paper { z-index: 1; background: #fff; color: #222; width: calc(100% - 22px); height: calc(100% - 22px); left: 11px; top: 11px; border-radius: var(--radius-md); box-shadow: 0 12px 40px rgba(0,0,0,.35); transform: translateY(72%); transition: transform 800ms cubic-bezier(.2,.7,.1,1); overflow: hidden; display: grid; grid-template-rows: auto 1fr auto; }
+    .mask-edge { z-index: 3; position: absolute; inset: 0; pointer-events: none; border-radius: var(--radius-lg); clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%); background: linear-gradient(180deg, hsl(var(--hue) 60% 30% / .85), hsl(var(--hue) 60% 24% / .85)); border: 1px solid hsl(var(--hue) 50% 50% / .35); }
     .open .flap { transform: rotateX(-180deg); }
     .open .paper { transform: translateY(0%); }
+    .open .mask-edge { opacity: 0; transition: opacity .5s ease .2s; }
+    .paper header { padding: 14px 16px; background: linear-gradient(180deg, #fff, #fafafa); border-bottom: 1px dashed #e7e7e7; color: #444; font-weight: 700; letter-spacing: .2px; }
+    .paper .content { padding: 14px 16px 10px; font-size: 15.5px; line-height: 1.65; }
+    .paper footer { padding: 12px 16px 16px; color: #666; font-size: 14px; border-top: 1px dashed #eee; }
     .open-hint { text-align: center; color: var(--sub); font-size: 13.5px; margin-top: 8px; }
 
-    /* Reasons grid */
+    /* grid */
     .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
     .col-6 { grid-column: span 6; }
     .col-4 { grid-column: span 4; }
@@ -107,48 +91,44 @@
     .reason h4 { margin: 0 0 8px; font-size: 16.5px; color: var(--acc); }
     .reason p { margin: 0; color: var(--sub); font-size: 14.5px; }
 
-    /* Wish machine */
+    /* wish */
     .wish-box { display: grid; gap: 12px; }
     .wish-output { min-height: 48px; display: grid; place-items: center; border: 1px dashed hsl(var(--hue) 40% 60% / .5); border-radius: var(--radius-lg); padding: 12px; background: hsl(var(--hue) 20% 10% / .5); color: var(--sub); text-align: center; }
 
-    /* Mood color */
     .slider { width: 100%; accent-color: var(--acc); }
 
-    /* Coupons */
+    /* coupons */
     .coupon { position: relative; padding: 16px; border-radius: var(--radius-lg); background: linear-gradient(180deg, #fff, #fafafa); color: #333; border: 1px dashed #e6d3e6; box-shadow: 0 10px 30px rgba(0,0,0,.12); overflow: hidden; }
     .coupon h5 { margin: 0 0 6px; font-size: 17px; color: hsl(var(--hue) 70% 38%); }
     .coupon p { margin: 0 0 10px; color: #555; font-size: 14px; }
-    .coupon .stamp { position: absolute; right: -18px; top: -18px; width: 120px; height: 120px; border-radius: 50%; border: 4px solid hsl(var(--hue) 80% 60%);
-      color: hsl(var(--hue) 80% 60%); display: grid; place-items: center; font-weight: 800; letter-spacing: 1px; transform: rotate(-15deg) scale(.1); opacity: 0; transition: .4s ease; pointer-events: none; }
+    .coupon .stamp { position: absolute; right: -18px; top: -18px; width: 120px; height: 120px; border-radius: 50%; border: 4px solid hsl(var(--hue) 80% 60%); color: hsl(var(--hue) 80% 60%); display: grid; place-items: center; font-weight: 800; letter-spacing: 1px; transform: rotate(-15deg) scale(.1); opacity: 0; transition: .4s ease; pointer-events: none; }
     .coupon.used .stamp { transform: rotate(-8deg) scale(1); opacity: .9; }
     .coupon .use-btn { border: none; background: hsl(var(--hue) 70% 52%); color: white; font-weight: 700; padding: 10px 14px; border-radius: 10px; cursor: pointer; box-shadow: 0 10px 20px hsl(var(--hue) 90% 40% / .3); }
     .coupon.used .use-btn { background: #d5d5d5; color: #777; pointer-events: none; }
 
-    /* Footer */
     footer { margin-top: 40px; text-align: center; color: var(--sub); font-size: 13.5px; opacity: .9; }
 
-    /* Confetti canvas */
     #confetti { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
-
-    /* Floating tips */
     .tip { font-size: 12.5px; color: var(--sub); }
 
-    /* Typing caret */
     .caret::after { content: "|"; margin-left: 2px; animation: blink 1s steps(1) infinite; }
     @keyframes blink { 50% { opacity: 0; } }
-
-    /* Micro pulse */
     .pulse { animation: pulse 1.2s ease-out; }
     @keyframes pulse { from { transform: scale(.97); } to { transform: scale(1); } }
+
+    /* 刮刮卡 */
+    .scratch { position: relative; border-radius: var(--radius-xl); overflow: hidden; border: 1px dashed hsl(var(--hue) 50% 60% / .35); }
+    .scratch canvas { display: block; width: 100%; height: auto; }
+    .reveal { position:absolute; inset:0; display:grid; place-items:center; font-weight:700; color:#222; }
   </style>
 </head>
 <body>
   <canvas id="confetti"></canvas>
   <div class="container">
     <header class="hero">
-      <div class="badge"><span class="spark"></span> Happy Birthday · 送给你的一份小小网页礼物 <span class="spark"></span></div>
-      <h1 class="grad">愿你今天被爱与快乐环绕</h1>
-      <p class="subline">从此刻起，让温柔和光一起来到你身边——不再低沉啦 ✨</p>
+      <div class="badge"><span class="spark"></span> Happy Birthday, Bling! · 豆豆的网页礼物 <span class="spark"></span></div>
+      <h1 class="grad">Bling，愿这一年，你被坚定地偏爱</h1>
+      <p class="subline">从此刻起，让温柔和光一直陪着你 —— 豆豆在这儿 ✨</p>
       <div class="cta">
         <button class="btn" id="btn-surprise">开启惊喜</button>
         <button class="btn secondary" id="btn-fire">放一点烟花（空格键也行）</button>
@@ -156,65 +136,66 @@
       <p class="tip" style="margin-top:10px">小技巧：拖动下面的“心情调色”，页面会换上你的专属色。</p>
     </header>
 
-    <!-- Mood color section -->
     <section class="card" aria-label="心情调色">
       <h3 style="margin:0 0 10px">🎨 心情调色</h3>
       <p class="subline" style="margin:0 0 10px">把这一天，涂成你喜欢的颜色。</p>
-      <input class="slider" id="hue" type="range" min="0" max="360" value="320" />
+      <input class="slider" id="hue" type="range" min="0" max="360" value="318" />
     </section>
 
-    <!-- Envelope letter -->
     <section class="card" aria-label="生日信">
-      <h3 style="margin:0 0 10px">💌 打开这封只写给你的信</h3>
+      <h3 style="margin:0 0 10px">💌 豆豆写给 Bling 的一封小信</h3>
       <div class="envelope-wrap">
         <div class="envelope" id="envelope">
-          <div class="base"></div>
-          <div class="flap"></div>
           <div class="paper">
-            <header>写给你：</header>
+            <header>写给 Bling：</header>
             <div class="content" id="letter"><span class="caret"></span></div>
             <footer>
-              <div>From · <span id="from-name">你的豆豆</span></div>
+              <div>From · <span id="from-name">豆豆</span></div>
             </footer>
           </div>
+          <div class="base"></div>
+          <div class="mask-edge"></div>
+          <div class="flap"></div>
         </div>
       </div>
       <p class="open-hint" id="open-hint">点一下信封即可打开 / 关闭</p>
     </section>
 
-    <!-- Reasons grid -->
-    <section class="card" aria-label="我爱你（的理由）清单">
-      <h3 style="margin:0 0 10px">🌟 你很棒的 10 个理由（只是开个头）</h3>
+    <section class="card" aria-label="刮刮卡惊喜">
+      <h3 style="margin:0 0 10px">🎯 刮一刮，收下今日的专属幸运</h3>
+      <div class="scratch" id="scratch"></div>
+      <p class="tip" style="margin-top:8px">用手指/鼠标在卡上刮开 50% 就自动解锁彩带和祝福。</p>
+    </section>
+
+    <section class="card" aria-label="Bling 的专属赞美">
+      <h3 style="margin:0 0 10px">🌟 写给 Bling 的 8 条真心话</h3>
       <div class="grid">
-        <div class="reason col-6"><h4>01 你很温柔</h4><p>总能替别人着想，也请多替自己想想。</p></div>
-        <div class="reason col-6"><h4>02 你在努力</h4><p>不声不响地往前走的你，真的很了不起。</p></div>
-        <div class="reason col-6"><h4>03 你会发光</h4><p>情绪偶尔有云，但你本身就是光。</p></div>
-        <div class="reason col-6"><h4>04 你被需要</h4><p>有人把你放在心尖儿上，我就是其中之一。</p></div>
-        <div class="reason col-6"><h4>05 你很真诚</h4><p>在这个世界，真诚永远稀缺而珍贵。</p></div>
-        <div class="reason col-6"><h4>06 你值得快乐</h4><p>不是因为完成了什么，而仅仅因为你是你。</p></div>
-        <div class="reason col-6"><h4>07 你很勇敢</h4><p>你和自己的情绪打过很多胜仗。</p></div>
-        <div class="reason col-6"><h4>08 你会被抱紧</h4><p>难过的时候，请允许被爱拥抱。</p></div>
-        <div class="reason col-6"><h4>09 你在被看见</h4><p>你的努力与善良，从来没有被忽略。</p></div>
-        <div class="reason col-6"><h4>10 你有无限可能</h4><p>新的一岁，是崭新的旅程。</p></div>
+        <div class="reason col-6"><h4>01 你很有韧性</h4><p>你走过的每一步，都是在为自己蓄力。</p></div>
+        <div class="reason col-6"><h4>02 你在被惦记</h4><p>情绪有起伏没关系，豆豆永远在你这边。</p></div>
+        <div class="reason col-6"><h4>03 你会被温柔相待</h4><p>这不是口号，是我们共同的底线。</p></div>
+        <div class="reason col-6"><h4>04 你很特别</h4><p>不是因为完成了什么，而只是因为你是 Bling。</p></div>
+        <div class="reason col-6"><h4>05 你值得松一口气</h4><p>把“完美”放下，让喜欢占据今天。</p></div>
+        <div class="reason col-6"><h4>06 你拥有选择权</h4><p>累的时候，我们就一起慢下来。</p></div>
+        <div class="reason col-6"><h4>07 你照亮了身边人</h4><p>你温柔的方式，让世界也温柔了一点。</p></div>
+        <div class="reason col-6"><h4>08 新的一岁很会发光</h4><p>愿你在被坚定偏爱里，越来越快乐。</p></div>
       </div>
     </section>
 
-    <!-- Wish machine & input -->
     <section class="grid" aria-label="愿望 & 随机祝福">
       <div class="col-6">
         <div class="card wish-box">
-          <h3 style="margin:0 0 10px">🎁 随机祝福机</h3>
-          <div class="wish-output" id="wish-output">轻点下面按钮，收一条来自宇宙的好消息</div>
+          <h3 style="margin:0 0 10px">🎁 随机祝福机（Bling 专属）</h3>
+          <div class="wish-output" id="wish-output">轻点下面按钮，收一条来自豆豆的小消息</div>
           <button class="btn" id="btn-wish">来一句！</button>
         </div>
       </div>
       <div class="col-6">
         <div class="card">
           <h3 style="margin:0 0 10px">📝 悄悄许个愿</h3>
-          <p class="subline" style="margin:0 0 10px">愿望会被小星星妥善保存（只在你的设备里）。</p>
+          <p class="subline" style="margin:0 0 10px">愿望只存在你的设备里，豆豆守口如瓶。</p>
           <form id="wish-form">
             <label for="wish" class="tip">写下今天的愿望：</label>
-            <input id="wish" name="wish" placeholder="愿我们都被这世界温柔以待" style="width:100%; padding:12px 14px; border-radius:12px; border:1px solid hsl(var(--hue) 30% 50% / .35); background:hsl(var(--hue) 30% 12% / .5); color:var(--txt);"/>
+            <input id="wish" name="wish" placeholder="愿每一次心动都有回应" style="width:100%; padding:12px 14px; border-radius:12px; border:1px solid hsl(var(--hue) 30% 50% / .35); background:hsl(var(--hue) 30% 12% / .5); color:var(--txt);"/>
             <div style="height:10px"></div>
             <button class="btn" type="submit">装进小星星 ✨</button>
             <button type="button" class="btn secondary" id="btn-show-wishes">查看已保存</button>
@@ -224,15 +205,14 @@
       </div>
     </section>
 
-    <!-- Coupons -->
     <section class="card" aria-label="生日专属礼券">
-      <h3 style="margin:0 0 10px">🎫 生日专属礼券（可即刻兑现）</h3>
+      <h3 style="margin:0 0 10px">🎫 Bling 的专属礼券（点击盖章）</h3>
       <div class="grid">
         <div class="col-4">
           <div class="coupon" data-id="hug">
             <div class="stamp">已使用</div>
             <h5>不讲道理拥抱券</h5>
-            <p>情绪来时，不需要解释。只要抱一抱。</p>
+            <p>任何时刻，只要你需要，豆豆立刻到。</p>
             <button class="use-btn">现在就用</button>
           </div>
         </div>
@@ -240,15 +220,15 @@
           <div class="coupon" data-id="walk">
             <div class="stamp">已使用</div>
             <h5>夜风散步券</h5>
-            <p>一起在城市里吹吹风，什么都不说也很好。</p>
+            <p>今天不谈道理，只谈舒服与放松。</p>
             <button class="use-btn">现在就用</button>
           </div>
         </div>
         <div class="col-4">
-          <div class="coupon" data-id="drink">
+          <div class="coupon" data-id="music">
             <div class="stamp">已使用</div>
-            <h5>奶茶加珍珠券</h5>
-            <p>今日份小甜蜜：你点单，我请客。</p>
+            <h5>一起听歌券</h5>
+            <p>挑三首歌，豆豆做你的专属播放列表。</p>
             <button class="use-btn">现在就用</button>
           </div>
         </div>
@@ -257,63 +237,43 @@
     </section>
 
     <footer>
-      <div>© <span id="year"></span> · 这份网页礼物由 <span id="from-foot">你的朋友</span> 送给你。愿你每一天都被温柔以待。</div>
+      <div>© <span id="year"></span> · 这份网页礼物由 豆豆 送给 Bling。愿你每一天都被温柔以待。</div>
       <div style="margin-top:6px">（按空格放烟花 · 轻点卡片也有小惊喜）</div>
     </footer>
   </div>
 
   <script>
-    // ======== 简易可编辑信息（改成你们的名字） ========
-    const TO = "亲爱的你";      // 她的名字（可改）
-    const FROM = "你的朋友";     // 你的名字（可改）
+    // ========== 个性信息 ==========
+    const TO = "Bling";      // 收信人
+    const FROM = "豆豆";     // 署名
 
-    // ======== Typing letter content ========
+    // ========== 信件内容（更私密、更具针对性） ==========
     const letterLines = [
       `亲爱的 ${TO}：`,
-      "生日快乐呀！这一年你辛苦啦。",
-      "谢谢你一直温柔地对待世界，也请好好对待自己。",
-      "偶尔低落没关系，但别一直住在阴天里。",
-      "我会在你需要的时候，递上热乎乎的拥抱和耐心。",
-      "愿新的一岁，睡前有期待，醒来有光。",
+      "生日快乐呀！先抱一抱你。过去这一年并不容易，但你每次把情绪收好继续向前，都让我好心疼也好骄傲。",
+      "你不需要时时刻刻很坚强——难过的时候，就靠在我这边。",
+      "请把喜欢的事列在今天的优先级第一位，其他的明天再说。",
+      "我想把耐心、温柔、和一整个晴天都给你。",
+      "新的一岁，愿你被坚定选择、被认真对待，也被热烈拥抱。",
       `永远站在你这边的 ${FROM}。`
     ];
 
-    // ======== Confetti engine ========
+    // ========== 纸屑彩带 ==========
     const canvas = document.getElementById('confetti');
     const ctx = canvas.getContext('2d');
-    let W = canvas.width = window.innerWidth;
-    let H = canvas.height = window.innerHeight;
+    let W = canvas.width = window.innerWidth; let H = canvas.height = window.innerHeight;
     window.addEventListener('resize', () => { W = canvas.width = innerWidth; H = canvas.height = innerHeight; });
-
     const pieces = [];
     function spawnPiece(x = Math.random()*W, y = -10, burst=false) {
-      const hue = +getComputedStyle(document.documentElement).getPropertyValue('--hue') || 320;
-      pieces.push({
-        x, y, r: Math.random()*7+3, vx: (Math.random()*2-1)*(burst?4:1.2), vy: Math.random()*1+ (burst?2.5:0.6),
-        rot: Math.random()*Math.PI, vr: (Math.random()*0.2-0.1), color: `hsl(${hue + (Math.random()*60-30)},90%,${50+Math.random()*20}%)`, life: 180 + Math.random()*120
-      });
+      const hue = +getComputedStyle(document.documentElement).getPropertyValue('--hue') || 318;
+      pieces.push({ x, y, r: Math.random()*7+3, vx: (Math.random()*2-1)*(burst?4:1.2), vy: Math.random()*1+ (burst?2.5:0.6), rot: Math.random()*Math.PI, vr: (Math.random()*0.2-0.1), color: `hsl(${hue + (Math.random()*60-30)},90%,${50+Math.random()*20}%)`, life: 180 + Math.random()*120 });
     }
-    function burst(x, y, count=80) { for (let i=0;i<count;i++) spawnPiece(x + (Math.random()*60-30), y + (Math.random()*40-20), true); }
+    function burst(x, y, count=80) { for (let i=0;i<count;i++) spawnPiece(x + (Math.random()*60-30), y + (Math.random()*40-20), true); chime(); }
     function gentleRain() { for (let i=0;i<12;i++) spawnPiece(); }
+    let lastTime=0; function animate(t=0) { const dt = Math.min(32, t - lastTime); lastTime = t; ctx.clearRect(0,0,W,H); pieces.forEach((p,i) => { p.vy += 0.01; p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.life -= dt*0.06; if (p.y > H+20 || p.x < -20 || p.x > W+20 || p.life <= 0) { pieces.splice(i,1); return; } ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot); ctx.globalAlpha = Math.max(0, Math.min(1, p.life/120)); ctx.fillStyle = p.color; ctx.fillRect(-p.r, -p.r/2, p.r*2, p.r); ctx.restore(); }); requestAnimationFrame(animate); }
+    animate(); setInterval(gentleRain, 1400);
 
-    let lastTime=0;
-    function animate(t=0) {
-      const dt = Math.min(32, t - lastTime); // cap dt for stability
-      lastTime = t;
-      ctx.clearRect(0,0,W,H);
-      pieces.forEach((p,i) => {
-        p.vy += 0.01; // gravity
-        p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.life -= dt*0.06;
-        if (p.y > H+20 || p.x < -20 || p.x > W+20 || p.life <= 0) { pieces.splice(i,1); return; }
-        ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot); ctx.globalAlpha = Math.max(0, Math.min(1, p.life/120));
-        ctx.fillStyle = p.color; ctx.fillRect(-p.r, -p.r/2, p.r*2, p.r); ctx.restore();
-      });
-      requestAnimationFrame(animate);
-    }
-    animate();
-    setInterval(gentleRain, 1200);
-
-    // ======== Hero interactions ========
+    // ========== 英雄区互动 ==========
     document.getElementById('btn-surprise').addEventListener('click', () => {
       burst(innerWidth/2, 160, 120);
       document.querySelector('header.hero').classList.add('pulse');
@@ -323,19 +283,17 @@
     document.getElementById('btn-fire').addEventListener('click', () => burst(innerWidth/2, innerHeight*0.3, 120));
     window.addEventListener('keydown', (e)=>{ if (e.code === 'Space') { e.preventDefault(); burst(innerWidth/2, innerHeight*0.35, 140); }});
 
-    // ======== Color slider ========
-    const hue = document.getElementById('hue');
-    hue.addEventListener('input', (e)=>{
+    // ========== 色相滑块 ==========
+    document.getElementById('hue').addEventListener('input', (e)=>{
       document.documentElement.style.setProperty('--hue', e.target.value);
     });
 
-    // ======== Letter open & typing ========
+    // ========== 信封开合与打字 ==========
     const envelope = document.getElementById('envelope');
     const letterBox = document.getElementById('letter');
     const openHint = document.getElementById('open-hint');
     const fromName = document.getElementById('from-name');
-    const fromFoot = document.getElementById('from-foot');
-    fromName.textContent = FROM; fromFoot.textContent = FROM; document.title = `🎂 ${TO} · 生日快乐！`;
+    fromName.textContent = FROM; document.title = `🎂 ${TO} · 生日快乐！`;
     let typed = false;
 
     function typeLines(lines, el, speed=34) {
@@ -344,13 +302,8 @@
       function type() {
         if (i >= lines.length) { span.classList.remove('caret'); return; }
         const line = lines[i];
-        if (j <= line.length) {
-          span.textContent = line.slice(0, j++);
-          setTimeout(type, speed);
-        } else {
-          el.appendChild(document.createElement('br'));
-          i++; j=0; setTimeout(type, speed*7);
-        }
+        if (j <= line.length) { span.textContent = line.slice(0, j++); setTimeout(type, speed); }
+        else { el.appendChild(document.createElement('br')); i++; j=0; setTimeout(type, speed*7); }
       }
       type();
     }
@@ -358,54 +311,49 @@
     envelope.addEventListener('click', () => {
       envelope.classList.toggle('open');
       if (envelope.classList.contains('open')) {
-        burst(envelope.getBoundingClientRect().left + envelope.clientWidth/2, envelope.getBoundingClientRect().top + 40, 80);
+        const r = envelope.getBoundingClientRect(); burst(r.left + r.width/2, r.top + 40, 80);
         if (!typed) typeLines(letterLines, letterBox);
         openHint.textContent = '再次点击可以把信收起来';
-      } else {
-        openHint.textContent = '点一下信封即可打开 / 关闭';
-      }
+      } else { openHint.textContent = '点一下信封即可打开 / 关闭'; }
     });
 
-    // ======== Wish machine ========
+    // ========== 祝福机 ==========
     const wishes = [
-      '宇宙偷偷为你排好了小惊喜。',
-      '今天的风超温柔，会把好运吹到你耳边。',
-      '所有热爱与安心正在向你靠近。',
-      '请把快乐放在优先级第一位。',
-      '你已经很棒了，别再苛求自己啦。',
-      '愿你的心一直被柔软包裹。',
-      '你就是答案，无需和任何人比较。',
-      '花会开，风会来，一切都会好起来。',
-      '你值得被认真、被偏爱、被坚定选择。',
-      '世界多了你，真的更可爱了。'
+      'Bling，今天起只和快乐做朋友。',
+      '豆豆在：无论何时，先抱一抱你。',
+      '把不开心交给风，把可爱留给自己。',
+      '想你每一步都踩在柔软的云上。',
+      '愿你的心一直被认真、被偏爱。',
+      '今天的月亮为你营业，记得抬头看。',
+      '给自己一点松弛感，世界会更温柔。',
+      'Bling 是答案，不用和任何人比较。'
     ];
     const btnWish = document.getElementById('btn-wish');
     const wishOut = document.getElementById('wish-output');
     btnWish.addEventListener('click', () => {
       const msg = wishes[Math.floor(Math.random()*wishes.length)];
       wishOut.textContent = msg; wishOut.classList.add('pulse'); setTimeout(()=>wishOut.classList.remove('pulse'), 500);
-      burst(wishOut.getBoundingClientRect().left + wishOut.clientWidth/2, wishOut.getBoundingClientRect().top + 20, 60);
+      const r = wishOut.getBoundingClientRect(); burst(r.left + r.width/2, r.top + 20, 60);
     });
 
-    // ======== Wish saving (localStorage) ========
+    // ========== 愿望保存 ==========
     const wishForm = document.getElementById('wish-form');
     const wishInput = document.getElementById('wish');
     const wishList = document.getElementById('wish-list');
     document.getElementById('btn-show-wishes').addEventListener('click', () => {
       const list = JSON.parse(localStorage.getItem('bd-wishes')||'[]');
       if (!list.length) { wishList.style.display='block'; wishList.textContent='（还没有保存的愿望）'; return; }
-      wishList.style.display='block';
-      wishList.innerHTML = list.map((w,i)=>`<div>⭐︎ ${i+1}. ${w}</div>`).join('');
+      wishList.style.display='block'; wishList.innerHTML = list.map((w,i)=>`<div>⭐︎ ${i+1}. ${w}</div>`).join('');
     });
     wishForm.addEventListener('submit', (e)=>{
       e.preventDefault();
       const v = wishInput.value.trim(); if (!v) return;
       const list = JSON.parse(localStorage.getItem('bd-wishes')||'[]'); list.unshift(v); localStorage.setItem('bd-wishes', JSON.stringify(list));
       wishInput.value = ''; wishList.style.display='block'; wishList.innerHTML = list.map((w,i)=>`<div>⭐︎ ${i+1}. ${w}</div>`).join('');
-      burst(wishForm.getBoundingClientRect().left + wishForm.clientWidth/2, wishForm.getBoundingClientRect().top + 10, 80);
+      const r = wishForm.getBoundingClientRect(); burst(r.left + r.width/2, r.top + 10, 80);
     });
 
-    // ======== Coupons ========
+    // ========== 礼券 ==========
     document.querySelectorAll('.coupon').forEach(card => {
       const id = card.dataset.id; const key = `coupon-${id}`;
       if (localStorage.getItem(key)==='used') card.classList.add('used');
@@ -418,7 +366,49 @@
       });
     });
 
-    // ======== Footer year ========
+    // ========== 刮刮卡实现 ==========
+    function createScratch(el, revealText) {
+      const ratio = window.devicePixelRatio || 1;
+      const w = el.clientWidth, h = Math.round(w * 0.44);
+      const cvs = document.createElement('canvas'); cvs.width = w * ratio; cvs.height = h * ratio; cvs.style.width = w + 'px'; cvs.style.height = h + 'px';
+      const g = cvs.getContext('2d'); g.scale(ratio, ratio);
+      // 底图
+      g.fillStyle = '#fff'; g.fillRect(0,0,w,h);
+      g.fillStyle = '#222'; g.font = '700 22px ui-sans-serif, system-ui'; g.textAlign='center'; g.textBaseline='middle';
+      g.fillText(revealText, w/2, h/2);
+      // 蒙层
+      const mask = document.createElement('canvas'); mask.width = w * ratio; mask.height = h * ratio; mask.style.width = w + 'px'; mask.style.height = h + 'px';
+      const mg = mask.getContext('2d'); mg.scale(ratio, ratio);
+      mg.fillStyle = `hsl(${getComputedStyle(document.documentElement).getPropertyValue('--hue')||318} 30% 30%)`;
+      mg.fillRect(0,0,w,h);
+      mg.fillStyle = '#fff'; mg.font = '700 12px ui-sans-serif, system-ui'; mg.globalAlpha = .22; mg.textAlign='center'; mg.textBaseline='middle';
+      mg.fillText('刮开有惊喜', w/2, h/2);
+
+      // 合成
+      const wrap = document.createElement('div'); wrap.style.position='relative'; wrap.style.height=h+'px';
+      const overlay = document.createElement('canvas'); overlay.width = w * ratio; overlay.height = h * ratio; overlay.style.width = w + 'px'; overlay.style.height = h + 'px'; overlay.style.position='absolute'; overlay.style.left=0; overlay.style.top=0;
+      const og = overlay.getContext('2d'); og.scale(ratio, ratio); og.drawImage(mask,0,0);
+
+      wrap.appendChild(cvs); wrap.appendChild(overlay); el.appendChild(wrap);
+
+      let scratched = 0; let last = null; const rad = 16;
+      function scratch(x,y){ og.globalCompositeOperation='destination-out'; og.beginPath(); og.arc(x,y,rad,0,Math.PI*2); og.fill(); scratched += Math.PI*rad*rad; check(); }
+      function pt(e){ const r = overlay.getBoundingClientRect(); const x = (e.touches?e.touches[0].clientX:e.clientX) - r.left; const y = (e.touches?e.touches[0].clientY:e.clientY) - r.top; return {x,y}; }
+      function move(e){ e.preventDefault(); const p = pt(e); if (last){ const dx=p.x-last.x, dy=p.y-last.y, d=Math.hypot(dx,dy); const steps=Math.ceil(d/8); for(let i=0;i<steps;i++){ const t=i/steps; scratch(last.x+dx*t,last.y+dy*t);} } scratch(p.x,p.y); last=p; }
+      function end(){ last=null; }
+      function check(){ const area = (overlay.width/ratio)*(overlay.height/ratio); if (scratched > area*0.5){ overlay.style.opacity='0'; overlay.style.pointerEvents='none';
+        const r = el.getBoundingClientRect(); burst(r.left + r.width/2, r.top + 20, 160);
+        wishOut.textContent = '解锁成功：今天起，Bling 只和快乐做朋友！'; chime(); }
+      }
+      overlay.addEventListener('pointerdown', move); overlay.addEventListener('pointermove', move); overlay.addEventListener('pointerup', end); overlay.addEventListener('pointerleave', end);
+    }
+
+    createScratch(document.getElementById('scratch'), 'Bling · 你被认真对待和坚定选择');
+
+    // ========== 轻音效（WebAudio 合成） ==========
+    let ac; function chime(){ try{ if(!ac) ac = new (window.AudioContext||window.webkitAudioContext)(); const o=ac.createOscillator(); const g=ac.createGain(); o.type='triangle'; o.frequency.value=880; g.gain.value=0.001; o.connect(g); g.connect(ac.destination); o.start(); g.gain.exponentialRampToValueAtTime(0.00001, ac.currentTime+0.25); o.stop(ac.currentTime+0.25);}catch(e){} }
+
+    // 年份
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
